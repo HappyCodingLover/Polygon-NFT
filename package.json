@@ -1,0 +1,66 @@
+{
+  "name": "@polygon-nft/monorepo",
+  "version": "1.0.0",
+  "keywords": [
+    "ethereum",
+    "react",
+    "uniswap",
+    "workspaces",
+    "yarn"
+  ],
+  "private": true,
+  "scripts": {
+    "react-app:build": "yarn workspace @polygon-nft/react-app build --max-old-space-size=12288",
+    "react-app:eject": "yarn workspace @polygon-nft/react-app eject",
+    "react-app:start": "yarn workspace @polygon-nft/react-app start",
+    "react-app:test": "yarn workspace @polygon-nft/react-app test",
+    "build": "yarn workspace @polygon-nft/react-app build --max-old-space-size=12288",
+    "chain": "yarn workspace @polygon-nft/hardhat chain",
+    "fork": "yarn workspace @polygon-nft/hardhat fork",
+    "node": "yarn workspace @polygon-nft/hardhat chain",
+    "test": "yarn workspace @polygon-nft/hardhat test",
+    "start": "yarn workspace @polygon-nft/react-app start",
+    "compile": "yarn workspace @polygon-nft/hardhat compile",
+    "deploy": "yarn workspace @polygon-nft/hardhat deploy",
+    "watch": "yarn workspace @polygon-nft/hardhat watch",
+    "accounts": "yarn workspace @polygon-nft/hardhat accounts",
+    "balance": "yarn workspace @polygon-nft/hardhat balance",
+    "send": "yarn workspace @polygon-nft/hardhat send",
+    "ipfs": "yarn workspace @polygon-nft/react-app ipfs",
+    "surge": "yarn workspace @polygon-nft/react-app surge",
+    "s3": "yarn workspace @polygon-nft/react-app s3",
+    "ship": "yarn workspace @polygon-nft/react-app ship",
+    "generate": "yarn workspace @polygon-nft/hardhat generate",
+    "account": "yarn workspace @polygon-nft/hardhat account",
+    "mineContractAddress": "cd packages/hardhat && npx hardhat mineContractAddress",
+    "wallet": "cd packages/hardhat && npx hardhat wallet",
+    "fundedwallet": "cd packages/hardhat && npx hardhat fundedwallet",
+    "flatten": "cd packages/hardhat && npx hardhat flatten",
+    "clean": "cd packages/hardhat && npx hardhat clean",
+    "run-graph-node": "yarn workspace @polygon-nft/services run-graph-node",
+    "remove-graph-node": "yarn workspace @polygon-nft/services remove-graph-node",
+    "clean-graph-node": "yarn workspace @polygon-nft/services clean-graph-node",
+    "graph-prepare": "mustache packages/subgraph/config/config.json packages/subgraph/src/subgraph.template.yaml > packages/subgraph/subgraph.yaml",
+    "graph-codegen": "yarn workspace @polygon-nft/subgraph graph codegen",
+    "graph-build": "yarn workspace @polygon-nft/subgraph graph build",
+    "graph-create-local": "yarn workspace @polygon-nft/subgraph graph create --node http://localhost:8020/ polygon-nft/your-contract",
+    "graph-remove-local": "yarn workspace @polygon-nft/subgraph graph remove --node http://localhost:8020/ polygon-nft/your-contract",
+    "graph-deploy-local": "yarn workspace @polygon-nft/subgraph graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 polygon-nft/your-contract",
+    "graph-ship-local": "yarn graph-prepare && yarn graph-codegen && yarn graph-deploy-local",
+    "deploy-and-graph": "yarn deploy && yarn graph-ship-local",
+    "mint": "yarn workspace @polygon-nft/hardhat mint",
+    "theme": "yarn workspace @polygon-nft/react-app theme",
+    "watch-theme": "yarn workspace @polygon-nft/react-app watch"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**",
+      "**/hardhat",
+      "**/hardhat/**"
+    ]
+  }
+}
